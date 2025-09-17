@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>第1回 4択テスト</title>
+<style>
+    /* 基本的なスタイル */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    /* 各テストセクションのスタイル */
+    .quiz-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        max-width: 800px; /* 見やすさのために最大幅を設定 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+    }
+    /* 各質問のスタイル */
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    /* 選択肢のスタイル */
+    .options {
+        list-style: none;
+        padding: 0;
+    }
+    .options li {
+        margin-bottom: 8px;
+    }
+    .options label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .options label:hover {
+        background-color: #e9ecef;
+    }
+    .options input[type="radio"] {
+        margin-right: 10px;
+    }
+    /* 正解・不正解表示用のスタイル */
+    .result-feedback {
+        margin-left: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .correct-symbol {
+        color: #28a745; /* 緑色 */
+    }
+    .incorrect-symbol {
+        color: #dc3545; /* 赤色 */
+    }
+    /* 正解の選択肢をハイライト */
+    .correct-answer {
+        background-color: #d4edda !important;
+        border-color: #c3e6cb;
+    }
+    /* ユーザーが選択した不正解の選択肢 */
+    .incorrect-choice {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    /* ボタンと結果表示のスタイル */
+    .grade-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+    .grade-button:hover {
+        background-color: #0056b3;
+    }
+    .grade-button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+    .result-display {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+
+    <div class="quiz-section">
+        <h2>第1回</h2>
+        <div class="question">
+            <p>1. FEPは、フッ素化エチレンプロピレンの略称ですが、何の一種ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_1" value="A"> A. フルオロポリマー</label></li>
+                <li><label><input type="radio" name="q1_1" value="B"> B. ポリエチレン</label></li>
+                <li><label><input type="radio" name="q1_1" value="C"> C. ポリプロピレン</label></li>
+                <li><label><input type="radio" name="q1_1" value="D"> D. ポリ塩化ビニル</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>2. FEPが持つ優れた性質の一つで、腐食を防ぐために使用される特性は何ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_2" value="A"> A. 化学的耐性</label></li>
+                <li><label><input type="radio" name="q1_2" value="B"> B. 電気伝導性</label></li>
+                <li><label><input type="radio" name="q1_2" value="C"> C. 高い熱伝導性</label></li>
+                <li><label><input type="radio" name="q1_2" value="D"> D. 光透過性</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>3. FEPを従来のパイプの代替として導入する主な目的は何ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_3" value="A"> A. 地下パイプラインの耐久性向上</label></li>
+                <li><label><input type="radio" name="q1_3" value="B"> B. コスト削減</label></li>
+                <li><label><input type="radio" name="q1_3" value="C"> C. 施工期間の短縮</label></li>
+                <li><label><input type="radio" name="q1_3" value="D"> D. 重量軽減</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>4. FEPを地中埋設する際、掘削時の重機による管路の破壊を防ぐために使用されるものは何ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_4" value="A"> A. 埋設標識テープ</label></li>
+                <li><label><input type="radio" name="q1_4" value="B"> B. 防食テープ</label></li>
+                <li><label><input type="radio" name="q1_4" value="C"> C. マンドリル</label></li>
+                <li><label><input type="radio" name="q1_4" value="D"> D. 保護シート</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>5. 地中埋設する管を錆や腐食から守るための材料で、埋設標識テープとは異なるものは何ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_5" value="A"> A. 防食テープ</label></li>
+                <li><label><input type="radio" name="q1_5" value="B"> B. 遮水シート</label></li>
+                <li><label><input type="radio" name="q1_5" value="C"> C. 緩衝材</label></li>
+                <li><label><input type="radio" name="q1_5" value="D"> D. 防水塗料</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>6. 地中配管終了後、管路径に合った円筒形の道具を用いて通過試験を行い、管路の状態を確認するものを何と呼びますか？ [1, 2]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_6" value="A"> A. マンドリル</label></li>
+                <li><label><input type="radio" name="q1_6" value="B"> B. パイプチェッカー</label></li>
+                <li><label><input type="radio" name="q1_6" value="C"> C. スコープ</label></li>
+                <li><label><input type="radio" name="q1_6" value="D"> D. ドリル</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>7. 地下に埋設された水道管、ガス管、電力ケーブルなどのインフラの位置を示すために使用されるものは何ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_7" value="A"> A. 埋設標識テープ</label></li>
+                <li><label><input type="radio" name="q1_7" value="B"> B. GPSマーカー</label></li>
+                <li><label><input type="radio" name="q1_7" value="C"> C. 地図</label></li>
+                <li><label><input type="radio" name="q1_7" value="D"> D. トランスポンダー</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>8. 埋設標識テープを使用する主な目的の一つで、掘削作業中に地下埋設物の位置を明確に示すことで、事故や損傷を防ぐことに関連するものは何ですか？ [1]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_8" value="A"> A. 安全確保</label></li>
+                <li><label><input type="radio" name="q1_8" value="B"> B. コスト削減</label></li>
+                <li><label><input type="radio" name="q1_8" value="C"> C. 作業効率向上</label></li>
+                <li><label><input type="radio" name="q1_8" value="D"> D. 環境保護</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>9. 作業に許容される余裕時間のことを何と呼びますか？ [3]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_9" value="A"> A. フロート</label></li>
+                <li><label><input type="radio" name="q1_9" value="B"> B. スケジュール</label></li>
+                <li><label><input type="radio" name="q1_9" value="C"> C. バッファ</label></li>
+                <li><label><input type="radio" name="q1_9" value="D"> D. ギャップ</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>10. クリティカルパス上の作業におけるフロートの値はいくつになりますか？ [3]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_10" value="A"> A. 0</label></li>
+                <li><label><input type="radio" name="q1_10" value="B"> B. 1</label></li>
+                <li><label><input type="radio" name="q1_10" value="C"> C. マイナス</label></li>
+                <li><label><input type="radio" name="q1_10" value="D"> D. 任意の数値</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>11. クリティカルパス上の作業のフロートが0になる理由として正しいものはどれですか？ [3]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_11" value="A"> A. 工期に直結する作業であり、遅延が工期全体に影響を与えるため</label></li>
+                <li><label><input type="radio" name="q1_11" value="B"> B. 作業が最も重要であるため</label></li>
+                <li><label><input type="radio" name="q1_11" value="C"> C. 最早開始時刻と最遅開始時刻が一致するため</label></li>
+                <li><label><input type="radio" name="q1_11" value="D"> D. 後続作業への影響を最小限にするため</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>12. 作業が遅延しても工期全体に影響を与えない最大の余裕時間のことを何と呼びますか？ [3]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_12" value="A"> A. トータルフロート</label></li>
+                <li><label><input type="radio" name="q1_12" value="B"> B. フリーフロート</label></li>
+                <li><label><input type="radio" name="q1_12" value="C"> C. ディペンデントフロート</label></li>
+                <li><label><input type="radio" name="q1_12" value="D"> D. コモンフロート</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>13. 次の作業に影響を与えない余裕時間のことを何と呼びますか？ [3]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_13" value="A"> A. フリーフロート</label></li>
+                <li><label><input type="radio" name="q1_13" value="B"> B. トータルフロート</label></li>
+                <li><label><input type="radio" name="q1_13" value="C"> C. ディペンデントフロート</label></li>
+                <li><label><input type="radio" name="q1_13" value="D"> D. スケジュールフロート</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>14. ある作業の最早開始時刻が10日、最遅終了時刻が18日、所要日数が6日であるとき、この作業のトータルフロートはどのくらいになりますか？ [3]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_14" value="A"> A. 2日</label></li>
+                <li><label><input type="radio" name="q1_14" value="B"> B. 3日</label></li>
+                <li><label><input type="radio" name="q1_14" value="C"> C. 4日</label></li>
+                <li><label><input type="radio" name="q1_14" value="D"> D. 8日</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>15. 後続作業のトータルフロートに影響を与える余裕時間のことを何と呼びますか？ [4]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_15" value="A"> A. ディペンデントフロート</label></li>
+                <li><label><input type="radio" name="q1_15" value="B"> B. トータルフロート</label></li>
+                <li><label><input type="radio" name="q1_15" value="C"> C. フリーフロート</label></li>
+                <li><label><input type="radio" name="q1_15" value="D"> D. ネガティブフロート</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>16. クリティカルパス上の作業が遅延すると、何が遅延しますか？ [4]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_16" value="A"> A. 工期全体</label></li>
+                <li><label><input type="radio" name="q1_16" value="B"> B. 特定作業のみ</label></li>
+                <li><label><input type="radio" name="q1_16" value="C"> C. 後続作業の一部</label></li>
+                <li><label><input type="radio" name="q1_16" value="D"> D. 資源の配分</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>17. 工程管理上非常に重要とされる、工期を決定づける作業の連なりを把握することの重要性は何ですか？ [4]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_17" value="A"> A. クリティカルパスを把握すること</label></li>
+                <li><label><input type="radio" name="q1_17" value="B"> B. 全作業の最早開始時刻を把握すること</label></li>
+                <li><label><input type="radio" name="q1_17" value="C"> C. 全作業の最遅終了時刻を把握すること</label></li>
+                <li><label><input type="radio" name="q1_17" value="D"> D. 全作業のフリーフロートを把握すること</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>18. 結合点に複数の先行作業がある場合、その結合点の最早開始時刻の算出方法として正しいものはどれですか？ [4]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_18" value="A"> A. 各先行作業の最早開始時刻 + 所要日数を計算し、その中で最も大きい値</label></li>
+                <li><label><input type="radio" name="q1_18" value="B"> B. 各先行作業の最早開始時刻 + 所要日数を計算し、その中で最も小さい値</label></li>
+                <li><label><input type="radio" name="q1_18" value="C"> C. 各先行作業の最早開始時刻 + 所要日数を平均した値</label></li>
+                <li><label><input type="radio" name="q1_18" value="D"> D. 各先行作業の所要日数を合計した値</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>19. 結合点に複数の後続作業がある場合、その結合点の最遅終了時刻の算出方法として正しいものはどれですか？ [5]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_19" value="A"> A. 各後続作業の最遅終了時刻 - 所要日数を計算し、その中で最も小さい値</label></li>
+                <li><label><input type="radio" name="q1_19" value="B"> B. 各後続作業の最遅終了時刻 - 所要日数を計算し、その中で最も大きい値</label></li>
+                <li><label><input type="radio" name="q1_19" value="C"> C. 各後続作業の最遅終了時刻 - 所要日数を平均した値</label></li>
+                <li><label><input type="radio" name="q1_19" value="D"> D. 各後続作業の所要日数を合計した値</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>20. ネットワーク工程表を用いるメリットの一つとして挙げられる、工程全体を視覚的に把握できることに関する記述はどれですか？ [5]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1_20" value="A"> A. 工程全体を視覚的に把握できる</label></li>
+                <li><label><input type="radio" name="q1_20" value="B"> B. 各作業のコストを正確に計算できる</label></li>
+                <li><label><input type="radio" name="q1_20" value="C"> C. 作業員のスキルレベルを自動で評価できる</label></li>
+                <li><label><input type="radio" name="q1_20" value="D"> D. 資材の在庫状況をリアルタイムで表示できる</label></li>
+            </ul>
+        </div>
+        <button class="grade-button">回答完了</button>
+        <div class="result-display" style="display:none;"></div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 第1回の問題の正解を定義 (valueが'A'のものが正解)
+    const correctAnswers = {
+        'q1_1': 'A', 'q1_2': 'A', 'q1_3': 'A', 'q1_4': 'A', 'q1_5': 'A', 
+        'q1_6': 'A', 'q1_7': 'A', 'q1_8': 'A', 'q1_9': 'A', 'q1_10': 'A',
+        'q1_11': 'A', 'q1_12': 'A', 'q1_13': 'A', 'q1_14': 'A', 'q1_15': 'A', 
+        'q1_16': 'A', 'q1_17': 'A', 'q1_18': 'A', 'q1_19': 'A', 'q1_20': 'A'
+    };
+
+    // 選択肢をシャッフルする機能
+    document.querySelectorAll('.options').forEach(optionsList => {
+        const options = Array.from(optionsList.getElementsByTagName('li'));
+        
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        
+        options.forEach(option => optionsList.appendChild(option));
+    });
+
+    // 「回答完了」ボタンの機能
+    document.querySelector('.grade-button').addEventListener('click', (event) => {
+        const button = event.target;
+        const quizSection = button.closest('.quiz-section');
+        const questions = quizSection.querySelectorAll('.question');
+        const resultDisplay = quizSection.querySelector('.result-display');
+        
+        let score = 0;
+        const totalQuestions = questions.length;
+
+        questions.forEach(question => {
+            const radios = question.querySelectorAll('input[type="radio"]');
+            const questionName = radios[0].name;
+            const correctAnswerValue = correctAnswers[questionName];
+
+            const userAnswerInput = question.querySelector(`input[name="${questionName}"]:checked`);
+            
+            const correctAnswerLabel = question.querySelector(`input[value="${correctAnswerValue}"]`).closest('label');
+            correctAnswerLabel.classList.add('correct-answer');
+
+            if (userAnswerInput) {
+                const userAnswerValue = userAnswerInput.value;
+                const userLabel = userAnswerInput.closest('label');
+                
+                const feedbackSpan = document.createElement('span');
+                feedbackSpan.classList.add('result-feedback');
+
+                if (userAnswerValue === correctAnswerValue) {
+                    score++;
+                    feedbackSpan.textContent = '〇';
+                    feedbackSpan.classList.add('correct-symbol');
+                } else {
+                    feedbackSpan.textContent = '×';
+                    feedbackSpan.classList.add('incorrect-symbol');
+                    userLabel.classList.add('incorrect-choice');
+                }
+                userLabel.appendChild(feedbackSpan);
+            }
+
+            radios.forEach(radio => {
+                radio.disabled = true;
+                radio.closest('label').style.cursor = 'default';
+                radio.closest('label').style.pointerEvents = 'none';
+            });
+        });
+
+        // 結果を表示
+        resultDisplay.textContent = `結果: ${totalQuestions}問中 ${score}問正解`;
+        resultDisplay.style.display = 'block';
+
+        // ボタンを無効化
+        button.disabled = true;
+    });
+});
+</script>
+
+</body>
+</html>
