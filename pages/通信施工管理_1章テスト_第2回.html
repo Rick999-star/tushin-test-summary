@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>第2回 4択テスト</title>
+<style>
+    /* 基本的なスタイル */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    /* 各テストセクションのスタイル */
+    .quiz-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        max-width: 800px; /* 見やすさのために最大幅を設定 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+    }
+    /* 各質問のスタイル */
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    /* 選択肢のスタイル */
+    .options {
+        list-style: none;
+        padding: 0;
+    }
+    .options li {
+        margin-bottom: 8px;
+    }
+    .options label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .options label:hover {
+        background-color: #e9ecef;
+    }
+    .options input[type="radio"] {
+        margin-right: 10px;
+    }
+    /* 正解・不正解表示用のスタイル */
+    .result-feedback {
+        margin-left: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .correct-symbol {
+        color: #28a745; /* 緑色 */
+    }
+    .incorrect-symbol {
+        color: #dc3545; /* 赤色 */
+    }
+    /* 正解の選択肢をハイライト */
+    .correct-answer {
+        background-color: #d4edda !important;
+        border-color: #c3e6cb;
+    }
+    /* ユーザーが選択した不正解の選択肢 */
+    .incorrect-choice {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    /* ボタンと結果表示のスタイル */
+    .grade-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+    .grade-button:hover {
+        background-color: #0056b3;
+    }
+    .grade-button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+    .result-display {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+
+    <div class="quiz-section">
+        <h2>第2回</h2>
+        <div class="question">
+            <p>1. ネットワーク工程表を用いるメリットの一つで、プロジェクト全体の工期に影響を与える重要な経路を特定できることは何ですか？ [5]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_1" value="A"> A. クリティカルパスを明確化できる</label></li>
+                <li><label><input type="radio" name="q2_1" value="B"> B. 作業ごとの担当者を自動で割り当てられる</label></li>
+                <li><label><input type="radio" name="q2_1" value="C"> C. 日々の進捗会議を不要にできる</label></li>
+                <li><label><input type="radio" name="q2_1" value="D"> D. 各作業の品質基準を自動で設定できる</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>2. ネットワーク工程表を用いるメリットの一つで、各作業に許容される余裕時間を把握できることは何ですか？ [5]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_2" value="A"> A. 各作業の余裕時間 (フロート) を把握できる</label></li>
+                <li><label><input type="radio" name="q2_2" value="B"> B. 作業の依存関係を自動で調整できる</label></li>
+                <li><label><input type="radio" name="q2_2" value="C"> C. プロジェクトの財務状況を詳細に分析できる</label></li>
+                <li><label><input type="radio" name="q2_2" value="D"> D. 作業員の勤務時間を最適化できる</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>3. ネットワーク工程表を作成する際に注意すべき点の一つで、各作業の実施にかかる日数を正確に見積もることが重要であるという記述はどれですか？ [5]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_3" value="A"> A. 各作業の所要日数を正確に見積もること</label></li>
+                <li><label><input type="radio" name="q2_3" value="B"> B. 作業の開始日を可能な限り早く設定すること</label></li>
+                <li><label><input type="radio" name="q2_3" value="C"> C. 工程表のデザインを複雑にしないこと</label></li>
+                <li><label><input type="radio" name="q2_3" value="D"> D. 複数のプロジェクトを同時に管理しないこと</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>4. ネットワーク工程表を作成する際に注意すべき点の一つで、作業間の前後関係や論理的なつながりを正しく設定することが重要であるという記述はどれですか？ [5]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_4" value="A"> A. 作業間の依存関係を正しく設定すること</label></li>
+                <li><label><input type="radio" name="q2_4" value="B"> B. 各作業に十分なバッファ時間を持たせること</label></li>
+                <li><label><input type="radio" name="q2_4" value="C"> C. 常に最新のソフトウェアを使用すること</label></li>
+                <li><label><input type="radio" name="q2_4" value="D"> D. 多くの専門家から意見を聞くこと</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>5. 高さ3メートル以上の場所から物体を投下する場合、事業者は労働安全衛生規則第536条に基づき、どのような措置を講じなければなりませんか？ [6]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_5" value="A"> A. 適当な投下設備を設ける</label></li>
+                <li><label><input type="radio" name="q2_5" value="B"> B. 防護ネットを設置する</label></li>
+                <li><label><input type="radio" name="q2_5" value="C"> C. 作業員に保護帽を着用させる</label></li>
+                <li><label><input type="radio" name="q2_5" value="D"> D. 落下防止柵を設置する</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>6. 高さ3メートル以上の場所から物体を投下する場合、事業者は労働安全衛生規則第536条に基づき、投下設備を設ける他にどのような措置を講じなければなりませんか？ [6]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_6" value="A"> A. 監視人を置く</label></li>
+                <li><label><input type="radio" name="q2_6" value="B"> B. 警告音を鳴らす</label></li>
+                <li><label><input type="radio" name="q2_6" value="C"> C. 投下時間を限定する</label></li>
+                <li><label><input type="radio" name="q2_6" value="D"> D. 作業員を休憩させる</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>7. 作業中に物体が落下して労働者に危険が及ぶおそれがある場合、事業者は労働安全衛生規則第537条に基づき、具体的にどのような措置を講じなければならないか。その一つとして正しいものはどれですか？ [6]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_7" value="A"> A. 防網の設備を設ける</label></li>
+                <li><label><input type="radio" name="q2_7" value="B"> B. 警備員を配置する</label></li>
+                <li><label><input type="radio" name="q2_7" value="C"> C. 作業を中止させる</label></li>
+                <li><label><input type="radio" name="q2_7" value="D"> D. 危険標識を設置する</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>8. 作業中に物体が落下して労働者に危険が及ぶおそれがある場合、事業者は労働安全衛生規則第537条に基づき、具体的にどのような措置を講じなければならないか。その一つとして正しいものはどれですか？ [6]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_8" value="A"> A. 立入区域を設定する</label></li>
+                <li><label><input type="radio" name="q2_8" value="B"> B. 保護具を配布する</label></li>
+                <li><label><input type="radio" name="q2_8" value="C"> C. 安全講習を実施する</label></li>
+                <li><label><input type="radio" name="q2_8" value="D"> D. 監視カメラを設置する</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>9. 船台の近くや高層建築場など、上方の作業から物体が飛来・落下する危険がある場所で作業を行う場合、事業者は労働者に何を着用させなければなりませんか？ [6]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_9" value="A"> A. 保護帽</label></li>
+                <li><label><input type="radio" name="q2_9" value="B"> B. 安全帯</label></li>
+                <li><label><input type="radio" name="q2_9" value="C"> C. 防塵マスク</label></li>
+                <li><label><input type="radio" name="q2_9" value="D"> D. 安全靴</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>10. 上方からの物体飛来・落下危険場所での保護帽着用義務の根拠となる条文は何ですか？ [6]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_10" value="A"> A. 労働安全衛生規則第539条</label></li>
+                <li><label><input type="radio" name="q2_10" value="B"> B. 労働安全衛生規則第536条</label></li>
+                <li><label><input type="radio" name="q2_10" value="C"> C. 労働安全衛生規則第537条</label></li>
+                <li><label><input type="radio" name="q2_10" value="D"> D. 労働安全衛生規則第563条</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>11. 足場における高さ2メートル以上の作業場所には、労働安全衛生規則第563条に基づき、どのような設備を設けなければなりませんか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_11" value="A"> A. 作業床</label></li>
+                <li><label><input type="radio" name="q2_11" value="B"> B. 手すり</label></li>
+                <li><label><input type="radio" name="q2_11" value="C"> C. 囲い</label></li>
+                <li><label><input type="radio" name="q2_11" value="D"> D. 防護柵</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>12. 足場における高さ2メートル以上の作業場所に設ける作業床の幅は、最低何センチメートル以上必要ですか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_12" value="A"> A. 40センチメートル以上</label></li>
+                <li><label><input type="radio" name="q2_12" value="B"> B. 30センチメートル以上</label></li>
+                <li><label><input type="radio" name="q2_12" value="C"> C. 50センチメートル以上</label></li>
+                <li><label><input type="radio" name="q2_12" value="D"> D. 60センチメートル以上</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>13. 酸素欠乏危険場所として、労働安全衛生施行令別表第六に挙げられている場所の一つはどれですか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_13" value="A"> A. 長期間使用されていない井戸等の内部</label></li>
+                <li><label><input type="radio" name="q2_13" value="B"> B. 一般的なオフィスビル</label></li>
+                <li><label><input type="radio" name="q2_13" value="C"> C. 換気が十分な工場</label></li>
+                <li><label><input type="radio" name="q2_13" value="D"> D. 屋外の建設現場</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>14. 酸素欠乏危険場所として、労働安全衛生施行令別表第六に挙げられている場所の一つはどれですか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_14" value="A"> A. ケーブル、ガス管その他地下に敷設される物を収容するための暗渠、マンホール又はピットの内部</label></li>
+                <li><label><input type="radio" name="q2_14" value="B"> B. 地上にある一般的な倉庫</label></li>
+                <li><label><input type="radio" name="q2_14" value="C"> C. 開放的な地下駐車場</label></li>
+                <li><label><input type="radio" name="q2_14" value="D"> D. 高所作業車の作業床</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>15. 酸素欠乏危険場所として、労働安全衛生施行令別表第六に挙げられている場所の一つはどれですか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_15" value="A"> A. 相当期間密閉されていた鋼製のボイラー、タンク、反応塔、船倉その他その内壁が酸化されやすい施設の内部</label></li>
+                <li><label><input type="radio" name="q2_15" value="B"> B. 常時換気が行われている地下室</label></li>
+                <li><label><input type="radio" name="q2_15" value="C"> C. 開放された大型容器</label></li>
+                <li><label><input type="radio" name="q2_15" value="D"> D. 木材を一時的に保管する屋外の場所</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>16. 酸素欠乏危険場所として、労働安全衛生施行令別表第六に挙げられている場所の一つはどれですか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_16" value="A"> A. 石炭、亜炭、硫化鉱、鋼材、くず鉄、原木、チップ、乾性油、魚油その他空気中の酸素を吸収する物質を入れてあるタンク、船倉、ホッパーその他の貯蔵施設の内部</label></li>
+                <li><label><input type="radio" name="q2_16" value="B"> B. 水道水を貯蔵する開放型貯水槽</label></li>
+                <li><label><input type="radio" name="q2_16" value="C"> C. 新鮮な野菜を保管する冷蔵庫</label></li>
+                <li><label><input type="radio" name="q2_16" value="D"> D. 液体燃料を貯蔵する屋外タンク</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>17. 酸素欠乏危険場所として、労働安全衛生施行令別表第六に挙げられている場所の一つはどれですか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_17" value="A"> A. ドライアイスを使用して冷蔵、冷凍又は水セメントのあく抜きを行っている冷蔵庫、冷凍庫、保冷貨車、保冷貨物自動車、船倉又は冷凍コンテナの内部</label></li>
+                <li><label><input type="radio" name="q2_17" value="B"> B. 自然換気によって温度管理されている倉庫</label></li>
+                <li><label><input type="radio" name="q2_17" value="C"> C. 暖房設備が稼働している作業場</label></li>
+                <li><label><input type="radio" name="q2_17" value="D"> D. 食品加工を行う開放的な空間</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>18. 酸素欠乏症等防止規則では、空気中の酸素の濃度が何パーセント未満の状態を「酸素欠乏」と定義していますか？ [7]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_18" value="A"> A. 18パーセント未満</label></li>
+                <li><label><input type="radio" name="q2_18" value="B"> B. 21パーセント未満</label></li>
+                <li><label><input type="radio" name="q2_18" value="C"> C. 15パーセント未満</label></li>
+                <li><label><input type="radio" name="q2_18" value="D"> D. 10パーセント未満</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>19. 事業者は、酸素欠乏危険作業を行う場所において酸素欠乏等のおそれが生じたとき、労働者にどのような対応をさせなければなりませんか？ [8]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_19" value="A"> A. 直ちに作業を中止させる</label></li>
+                <li><label><input type="radio" name="q2_19" value="B"> B. 作業を継続させるが監視を強化する</label></li>
+                <li><label><input type="radio" name="q2_19" value="C"> C. 換気装置を最大にする</label></li>
+                <li><label><input type="radio" name="q2_19" value="D"> D. 保護具を装着させる</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>20. 事業者は、酸素欠乏危険作業を行う場所において酸素欠乏等のおそれが生じたとき、労働者にどのような対応をさせなければなりませんか？ [8]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2_20" value="A"> A. 労働者をその場所から退避させる</label></li>
+                <li><label><input type="radio" name="q2_20" value="B"> B. 新鮮な空気の供給を指示する</label></li>
+                <li><label><input type="radio" name="q2_20" value="C"> C. 緊急事態発生を報告させる</label></li>
+                <li><label><input type="radio" name="q2_20" value="D"> D. 作業主任者の指示を待たせる</label></li>
+            </ul>
+        </div>
+        <button class="grade-button">回答完了</button>
+        <div class="result-display" style="display:none;"></div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 第2回の問題の正解を定義 (valueが'A'のものが正解)
+    const correctAnswers = {
+        'q2_1': 'A', 'q2_2': 'A', 'q2_3': 'A', 'q2_4': 'A', 'q2_5': 'A', 
+        'q2_6': 'A', 'q2_7': 'A', 'q2_8': 'A', 'q2_9': 'A', 'q2_10': 'A',
+        'q2_11': 'A', 'q2_12': 'A', 'q2_13': 'A', 'q2_14': 'A', 'q2_15': 'A', 
+        'q2_16': 'A', 'q2_17': 'A', 'q2_18': 'A', 'q2_19': 'A', 'q2_20': 'A'
+    };
+
+    // 選択肢をシャッフルする機能
+    document.querySelectorAll('.options').forEach(optionsList => {
+        const options = Array.from(optionsList.getElementsByTagName('li'));
+        
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        
+        options.forEach(option => optionsList.appendChild(option));
+    });
+
+    // 「回答完了」ボタンの機能
+    document.querySelector('.grade-button').addEventListener('click', (event) => {
+        const button = event.target;
+        const quizSection = button.closest('.quiz-section');
+        const questions = quizSection.querySelectorAll('.question');
+        const resultDisplay = quizSection.querySelector('.result-display');
+        
+        let score = 0;
+        const totalQuestions = questions.length;
+
+        questions.forEach(question => {
+            const radios = question.querySelectorAll('input[type="radio"]');
+            const questionName = radios[0].name;
+            const correctAnswerValue = correctAnswers[questionName];
+
+            const userAnswerInput = question.querySelector(`input[name="${questionName}"]:checked`);
+            
+            const correctAnswerLabel = question.querySelector(`input[value="${correctAnswerValue}"]`).closest('label');
+            correctAnswerLabel.classList.add('correct-answer');
+
+            if (userAnswerInput) {
+                const userAnswerValue = userAnswerInput.value;
+                const userLabel = userAnswerInput.closest('label');
+                
+                const feedbackSpan = document.createElement('span');
+                feedbackSpan.classList.add('result-feedback');
+
+                if (userAnswerValue === correctAnswerValue) {
+                    score++;
+                    feedbackSpan.textContent = '〇';
+                    feedbackSpan.classList.add('correct-symbol');
+                } else {
+                    feedbackSpan.textContent = '×';
+                    feedbackSpan.classList.add('incorrect-symbol');
+                    userLabel.classList.add('incorrect-choice');
+                }
+                userLabel.appendChild(feedbackSpan);
+            }
+
+            radios.forEach(radio => {
+                radio.disabled = true;
+                radio.closest('label').style.cursor = 'default';
+                radio.closest('label').style.pointerEvents = 'none';
+            });
+        });
+
+        // 結果を表示
+        resultDisplay.textContent = `結果: ${totalQuestions}問中 ${score}問正解`;
+        resultDisplay.style.display = 'block';
+
+        // ボタンを無効化
+        button.disabled = true;
+    });
+});
+</script>
+
+</body>
+</html>
