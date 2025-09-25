@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>第3回 4択テスト</title>
+<style>
+    /* 基本的なスタイル */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    /* 各テストセクションのスタイル */
+    .quiz-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        max-width: 800px; /* 見やすさのために最大幅を設定 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+    }
+    /* 各質問のスタイル */
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    /* 選択肢のスタイル */
+    .options {
+        list-style: none;
+        padding: 0;
+    }
+    .options li {
+        margin-bottom: 8px;
+    }
+    .options label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .options label:hover {
+        background-color: #e9ecef;
+    }
+    .options input[type="radio"] {
+        margin-right: 10px;
+    }
+    /* 正解・不正解表示用のスタイル */
+    .result-feedback {
+        margin-left: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .correct-symbol {
+        color: #28a745; /* 緑色 */
+    }
+    .incorrect-symbol {
+        color: #dc3545; /* 赤色 */
+    }
+    /* 正解の選択肢をハイライト */
+    .correct-answer {
+        background-color: #d4edda !important;
+        border-color: #c3e6cb;
+    }
+    /* ユーザーが選択した不正解の選択肢 */
+    .incorrect-choice {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    /* ボタンと結果表示のスタイル */
+    .grade-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+    .grade-button:hover {
+        background-color: #0056b3;
+    }
+    .grade-button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+    .result-display {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+
+    <div class="quiz-section">
+        <h2>第3回</h2>
+        <div class="question">
+            <p>1. 移動はしごを使用する場合、労働安全衛生規則第527条では幅を何センチメートル以上と定めていますか？ [8]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_1" value="A"> A. 30センチメートル以上</label></li>
+                <li><label><input type="radio" name="q3_1" value="B"> B. 40センチメートル以上</label></li>
+                <li><label><input type="radio" name="q3_1" value="C"> C. 25センチメートル以上</label></li>
+                <li><label><input type="radio" name="q3_1" value="D"> D. 50センチメートル以上</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>2. スレート、木毛板等の材料で葺かれた屋根の上で作業を行う場合、踏み抜きによる労働者の危険を防⽌するために、事業者は労働安全衛生規則第524条に基づき、どのような措置を講じなければなりませんか？ [8]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_2" value="A"> A. 幅が30センチメートル以上の歩み板を設ける</label></li>
+                <li><label><input type="radio" name="q3_2" value="B"> B. 安全靴の着用を義務付ける</label></li>
+                <li><label><input type="radio" name="q3_2" value="C"> C. 落下防止柵を設置する</label></li>
+                <li><label><input type="radio" name="q3_2" value="D"> D. 作業員を少なくする</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>3. スレート、木毛板等の材料で葺かれた屋根の上で作業を行う場合、踏み抜きによる労働者の危険を防⽌するために、事業者は労働安全衛生規則第524条に基づき、歩み板を設ける他にどのような措置を講じなければなりませんか？ [8]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_3" value="A"> A. 防網を張る</label></li>
+                <li><label><input type="radio" name="q3_3" value="B"> B. 作業床を設置する</label></li>
+                <li><label><input type="radio" name="q3_3" value="C"> C. 保護帽を着用させる</label></li>
+                <li><label><input type="radio" name="q3_3" value="D"> D. 監視人を配置する</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>4. 高さ2メートル以上の作業床の端、開口部等で墜落により労働者に危険を及ぼすおそれのある箇所には、労働安全衛生規則第519条に基づき、何を設けなければなりませんか？ [8]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_4" value="A"> A. 囲い、手すり、覆い等</label></li>
+                <li><label><input type="radio" name="q3_4" value="B"> B. 警告標識</label></li>
+                <li><label><input type="radio" name="q3_4" value="C"> C. 落下防止ネット</label></li>
+                <li><label><input type="radio" name="q3_4" value="D"> D. 安全帯</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>5. 事業者は、足場の構造及び材料に応じて、労働安全衛生規則第562条に基づき、何を定め、それを超えて積載してはならないとされていますか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_5" value="A"> A. 作業床の最大積載荷重</label></li>
+                <li><label><input type="radio" name="q3_5" value="B"> B. 足場の許容高さ</label></li>
+                <li><label><input type="radio" name="q3_5" value="C"> C. 作業員の最大人数</label></li>
+                <li><label><input type="radio" name="q3_5" value="D"> D. 工具の最大積載量</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>6. 高所作業車を使用する場合、事業者は労働安全衛生規則第194条の11に基づき、転倒又は転落による労働者の危険を防⽌するために、どのような措置を講じなければなりませんか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_6" value="A"> A. アウトリガーを張り出す</label></li>
+                <li><label><input type="radio" name="q3_6" value="B"> B. 作業床の高さ制限を設ける</label></li>
+                <li><label><input type="radio" name="q3_6" value="C"> C. 作業員に安全帯を着用させる</label></li>
+                <li><label><input type="radio" name="q3_6" value="D"> D. 複数人で作業を行う</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>7. 高所作業車を使用する場合、事業者は労働安全衛生規則第194条の11に基づき、転倒又は転落による労働者の危険を防⽌するために、どのような措置を講じなければなりませんか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_7" value="A"> A. 地盤の不同沈下を防止する</label></li>
+                <li><label><input type="radio" name="q3_7" value="B"> B. 作業速度を制限する</label></li>
+                <li><label><input type="radio" name="q3_7" value="C"> C. 高所作業車の定期点検を行う</label></li>
+                <li><label><input type="radio" name="q3_7" value="D"> D. 作業半径を制限する</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>8. 高所作業車を使用する場合、事業者は労働安全衛生規則第194条の11に基づき、転倒又は転落による労働者の危険を防⽌するために、どのような措置を講じなければなりませんか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_8" value="A"> A. 路肩の崩壊を防止する</label></li>
+                <li><label><input type="radio" name="q3_8" value="B"> B. 強風時の使用を禁止する</label></li>
+                <li><label><input type="radio" name="q3_8" value="C"> C. 作業前に安全ミーティングを行う</label></li>
+                <li><label><input type="radio" name="q3_8" value="D"> D. 荷物の積載を禁止する</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>9. 高所作業車を使用する場合、事業者はその日の作業を開始する前に、労働安全衛生規則第194条の27に基づき、何について点検を行わなければなりませんか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_9" value="A"> A. 制動装置、操作装置及び作業装置の機能</label></li>
+                <li><label><input type="radio" name="q3_9" value="B"> B. 燃料の残量</label></li>
+                <li><label><input type="radio" name="q3_9" value="C"> C. タイヤの空気圧</label></li>
+                <li><label><input type="radio" name="q3_9" value="D"> D. 照明装置の点灯</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>10. 事業者は、高所作業車について労働安全衛生規則第194条の16に基づき、何を超えて使用してはならないとされていますか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_10" value="A"> A. 積載荷重</label></li>
+                <li><label><input type="radio" name="q3_10" value="B"> B. 作業時間</label></li>
+                <li><label><input type="radio" name="q3_10" value="C"> C. 最高速度</label></li>
+                <li><label><input type="radio" name="q3_10" value="D"> D. 作業範囲</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>11. 事業者は、高所作業車について労働安全衛生規則第194条の16に基づき、積載荷重を超えて使用してはならないとされていますが、その他に何を超えて使用してはならないとされていますか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_11" value="A"> A. その他の能力</label></li>
+                <li><label><input type="radio" name="q3_11" value="B"> B. 稼働時間</label></li>
+                <li><label><input type="radio" name="q3_11" value="C"> C. メンテナンス頻度</label></li>
+                <li><label><input type="radio" name="q3_11" value="D"> D. 走行距離</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>12. 労働者を雇い入れたとき、事業者は労働安全衛生法第59条第1項に基づき、どのような教育を行わなければなりませんか？ [9]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_12" value="A"> A. 労働者が従事する業務に関する安全又は衛生のための教育</label></li>
+                <li><label><input type="radio" name="q3_12" value="B"> B. 労働組合活動に関する教育</label></li>
+                <li><label><input type="radio" name="q3_12" value="C"> C. 会社の経営理念に関する教育</label></li>
+                <li><label><input type="radio" name="q3_12" value="D"> D. 新製品に関する技術教育</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>13. 世界中で使用されている品質マネジメントシステムの国際規格であり、製品やサービスの品質保証のためのルールを定めているのは何ですか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_13" value="A"> A. ISO 9000</label></li>
+                <li><label><input type="radio" name="q3_13" value="B"> B. JIS</label></li>
+                <li><label><input type="radio" name="q3_13" value="C"> C. QCサークル</label></li>
+                <li><label><input type="radio" name="q3_13" value="D"> D. シックスシグマ</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>14. 日本工業規格の略称であり、ISO 9000 を参考に日本国内向けに制定された規格は何ですか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_14" value="A"> A. JIS</label></li>
+                <li><label><input type="radio" name="q3_14" value="B"> B. JSA</label></li>
+                <li><label><input type="radio" name="q3_14" value="C"> C. JQA</label></li>
+                <li><label><input type="radio" name="q3_14" value="D"> D. JET</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>15. 品質管理の文脈において、製品やサービスが十分な品質を満たしているかを定期的に見直すことを何と呼びますか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_15" value="A"> A. レビュー</label></li>
+                <li><label><input type="radio" name="q3_15" value="B"> B. 監査</label></li>
+                <li><label><input type="radio" name="q3_15" value="C"> C. 検査</label></li>
+                <li><label><input type="radio" name="q3_15" value="D"> D. テスト</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>16. 品質マネジメントシステム（QMS）のパフォーマンス向上のために行われる活動を何と呼びますか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_16" value="A"> A. 継続的改善</label></li>
+                <li><label><input type="radio" name="q3_16" value="B"> B. 品質保証</label></li>
+                <li><label><input type="radio" name="q3_16" value="C"> C. 品質管理</label></li>
+                <li><label><input type="radio" name="q3_16" value="D"> D. 標準化</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>17. 製品やサービスの履歴、適用、または所在を追跡できることを何と呼びますか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_17" value="A"> A. トレーサビリティ</label></li>
+                <li><label><input type="radio" name="q3_17" value="B"> B. プロセス管理</label></li>
+                <li><label><input type="radio" name="q3_17" value="C"> C. インベントリ管理</label></li>
+                <li><label><input type="radio" name="q3_17" value="D"> D. 履歴管理</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>18. 不適合の原因を除去し、再発を防ぐための処置を何と呼びますか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_18" value="A"> A. 是正処置</label></li>
+                <li><label><input type="radio" name="q3_18" value="B"> B. 予防処置</label></li>
+                <li><label><input type="radio" name="q3_18" value="C"> C. 修正処置</label></li>
+                <li><label><input type="radio" name="q3_18" value="D"> D. 改善処置</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>19. 問題発生前に、起こりうる不適合や望ましくない状況の原因を除去するための処置を何と呼びますか？ [10]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_19" value="A"> A. 予防処置</label></li>
+                <li><label><input type="radio" name="q3_19" value="B"> B. 是正処置</label></li>
+                <li><label><input type="radio" name="q3_19" value="C"> C. 緊急処置</label></li>
+                <li><label><input type="radio" name="q3_19" value="D"> D. 対症療法</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>20. 製品やサービスが規定の要求事項を満たしていない場合でも、特定の条件下でその使用や提供を特別に認めることを何と呼びますか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3_20" value="A"> A. 特別採用</label></li>
+                <li><label><input type="radio" name="q3_20" value="B"> B. 暫定承認</label></li>
+                <li><label><input type="radio" name="q3_20" value="C"> C. 例外許可</label></li>
+                <li><label><input type="radio" name="q3_20" value="D"> D. 条件付き合格</label></li>
+            </ul>
+        </div>
+        <button class="grade-button">回答完了</button>
+        <div class="result-display" style="display:none;"></div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 第3回の問題の正解を定義 (valueが'A'のものが正解)
+    const correctAnswers = {
+        'q3_1': 'A', 'q3_2': 'A', 'q3_3': 'A', 'q3_4': 'A', 'q3_5': 'A', 
+        'q3_6': 'A', 'q3_7': 'A', 'q3_8': 'A', 'q3_9': 'A', 'q3_10': 'A',
+        'q3_11': 'A', 'q3_12': 'A', 'q3_13': 'A', 'q3_14': 'A', 'q3_15': 'A', 
+        'q3_16': 'A', 'q3_17': 'A', 'q3_18': 'A', 'q3_19': 'A', 'q3_20': 'A'
+    };
+
+    // 選択肢をシャッフルする機能
+    document.querySelectorAll('.options').forEach(optionsList => {
+        const options = Array.from(optionsList.getElementsByTagName('li'));
+        
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        
+        options.forEach(option => optionsList.appendChild(option));
+    });
+
+    // 「回答完了」ボタンの機能
+    document.querySelector('.grade-button').addEventListener('click', (event) => {
+        const button = event.target;
+        const quizSection = button.closest('.quiz-section');
+        const questions = quizSection.querySelectorAll('.question');
+        const resultDisplay = quizSection.querySelector('.result-display');
+        
+        let score = 0;
+        const totalQuestions = questions.length;
+
+        questions.forEach(question => {
+            const radios = question.querySelectorAll('input[type="radio"]');
+            const questionName = radios[0].name;
+            const correctAnswerValue = correctAnswers[questionName];
+
+            const userAnswerInput = question.querySelector(`input[name="${questionName}"]:checked`);
+            
+            const correctAnswerLabel = question.querySelector(`input[value="${correctAnswerValue}"]`).closest('label');
+            correctAnswerLabel.classList.add('correct-answer');
+
+            if (userAnswerInput) {
+                const userAnswerValue = userAnswerInput.value;
+                const userLabel = userAnswerInput.closest('label');
+                
+                const feedbackSpan = document.createElement('span');
+                feedbackSpan.classList.add('result-feedback');
+
+                if (userAnswerValue === correctAnswerValue) {
+                    score++;
+                    feedbackSpan.textContent = '〇';
+                    feedbackSpan.classList.add('correct-symbol');
+                } else {
+                    feedbackSpan.textContent = '×';
+                    feedbackSpan.classList.add('incorrect-symbol');
+                    userLabel.classList.add('incorrect-choice');
+                }
+                userLabel.appendChild(feedbackSpan);
+            }
+
+            radios.forEach(radio => {
+                radio.disabled = true;
+                radio.closest('label').style.cursor = 'default';
+                radio.closest('label').style.pointerEvents = 'none';
+            });
+        });
+
+        // 結果を表示
+        resultDisplay.textContent = `結果: ${totalQuestions}問中 ${score}問正解`;
+        resultDisplay.style.display = 'block';
+
+        // ボタンを無効化
+        button.disabled = true;
+    });
+});
+</script>
+
+</body>
+</html>
