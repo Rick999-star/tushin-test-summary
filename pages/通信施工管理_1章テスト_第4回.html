@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>第4回 4択テスト</title>
+<style>
+    /* 基本的なスタイル */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    /* 各テストセクションのスタイル */
+    .quiz-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        max-width: 800px; /* 見やすさのために最大幅を設定 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+    }
+    /* 各質問のスタイル */
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    /* 選択肢のスタイル */
+    .options {
+        list-style: none;
+        padding: 0;
+    }
+    .options li {
+        margin-bottom: 8px;
+    }
+    .options label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .options label:hover {
+        background-color: #e9ecef;
+    }
+    .options input[type="radio"] {
+        margin-right: 10px;
+    }
+    /* 正解・不正解表示用のスタイル */
+    .result-feedback {
+        margin-left: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .correct-symbol {
+        color: #28a745; /* 緑色 */
+    }
+    .incorrect-symbol {
+        color: #dc3545; /* 赤色 */
+    }
+    /* 正解の選択肢をハイライト */
+    .correct-answer {
+        background-color: #d4edda !important;
+        border-color: #c3e6cb;
+    }
+    /* ユーザーが選択した不正解の選択肢 */
+    .incorrect-choice {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    /* ボタンと結果表示のスタイル */
+    .grade-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+    .grade-button:hover {
+        background-color: #0056b3;
+    }
+    .grade-button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+    .result-display {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+
+    <div class="quiz-section">
+        <h2>第4回</h2>
+        <div class="question">
+            <p>1. 組織が品質方針と整合性を持ち、達成すべき具体的な結果を示すものを何と呼びますか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_1" value="A"> A. 品質目標</label></li>
+                <li><label><input type="radio" name="q4_1" value="B"> B. 品質計画</label></li>
+                <li><label><input type="radio" name="q4_1" value="C"> C. 品質手順</label></li>
+                <li><label><input type="radio" name="q4_1" value="D"> D. 品質マニュアル</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>2. 棒グラフと折れ線グラフを組み合わせた複合グラフで、項目の重要度を視覚的に示すものを何と呼びますか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_2" value="A"> A. パレート図</label></li>
+                <li><label><input type="radio" name="q4_2" value="B"> B. ヒストグラム</label></li>
+                <li><label><input type="radio" name="q4_2" value="C"> C. 散布図</label></li>
+                <li><label><input type="radio" name="q4_2" value="D"> D. 管理図</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>3. データを区間ごとに区切り、各区間の個数や数値のばらつきを棒グラフに似た形で表現するグラフを何と呼びますか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_3" value="A"> A. ヒストグラム</label></li>
+                <li><label><input type="radio" name="q4_3" value="B"> B. パレート図</label></li>
+                <li><label><input type="radio" name="q4_3" value="C"> C. 円グラフ</label></li>
+                <li><label><input type="radio" name="q4_3" value="D"> D. 折れ線グラフ</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>4. 特性要因図の別名は何ですか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_4" value="A"> A. フィッシュボーン図</label></li>
+                <li><label><input type="radio" name="q4_4" value="B"> B. ツリー図</label></li>
+                <li><label><input type="radio" name="q4_4" value="C"> C. マインドマップ</label></li>
+                <li><label><input type="radio" name="q4_4" value="D"> D. フローチャート</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>5. 散布図で把握できるデータの関係性は何ですか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_5" value="A"> A. 相関関係</label></li>
+                <li><label><input type="radio" name="q4_5" value="B"> B. 因果関係</label></li>
+                <li><label><input type="radio" name="q4_5" value="C"> C. 分布</label></li>
+                <li><label><input type="radio" name="q4_5" value="D"> D. 傾向</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>6. 管理図の別名は何ですか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_6" value="A"> A. シューハート管理図</label></li>
+                <li><label><input type="radio" name="q4_6" value="B"> B. 品質管理図</label></li>
+                <li><label><input type="radio" name="q4_6" value="C"> C. 工程管理図</label></li>
+                <li><label><input type="radio" name="q4_6" value="D"> D. QC管理図</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>7. 電子回路で発生する周波数を数値として表示する測定機器は何ですか？ [11]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_7" value="A"> A. 周波数カウンタ</label></li>
+                <li><label><input type="radio" name="q4_7" value="B"> B. オシロスコープ</label></li>
+                <li><label><input type="radio" name="q4_7" value="C"> C. スペクトラムアナライザ</label></li>
+                <li><label><input type="radio" name="q4_7" value="D"> D. デジタルマルチメータ</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>8. 電気信号を時間軸に沿ってグラフ化し、波形として表示する測定器は何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_8" value="A"> A. オシロスコープ</label></li>
+                <li><label><input type="radio" name="q4_8" value="B"> B. 周波数カウンタ</label></li>
+                <li><label><input type="radio" name="q4_8" value="C"> C. スペクトラムアナライザ</label></li>
+                <li><label><input type="radio" name="q4_8" value="D"> D. デジタルマルチメータ</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>9. 信号の周波数成分を解析し、周波数対電力または電圧のグラフを表示する測定器は何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_9" value="A"> A. スペクトラムアナライザ</label></li>
+                <li><label><input type="radio" name="q4_9" value="B"> B. オシロスコープ</label></li>
+                <li><label><input type="radio" name="q4_9" value="C"> C. 周波数カウンタ</label></li>
+                <li><label><input type="radio" name="q4_9" value="D"> D. ロジックアナライザ</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>10. 電圧、電流、抵抗などの複数の電気量を測定するための汎用測定器は何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_10" value="A"> A. デジタルマルチメータ（DMM）</label></li>
+                <li><label><input type="radio" name="q4_10" value="B"> B. クランプメータ</label></li>
+                <li><label><input type="radio" name="q4_10" value="C"> C. メガテスター</label></li>
+                <li><label><input type="radio" name="q4_10" value="D"> D. 検電器</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>11. デジタル通信におけるビット誤り率（BER）を測定するための装置は何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_11" value="A"> A. 符号誤り率測定器</label></li>
+                <li><label><input type="radio" name="q4_11" value="B"> B. ネットワークアナライザ</label></li>
+                <li><label><input type="radio" name="q4_11" value="C"> C. プロトコルアナライザ</label></li>
+                <li><label><input type="radio" name="q4_11" value="D"> D. 信号発生器</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>12. デミングサイクルを構成する4つのステップのうち、「計画」に該当するものは何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_12" value="A"> A. Plan</label></li>
+                <li><label><input type="radio" name="q4_12" value="B"> B. Do</label></li>
+                <li><label><input type="radio" name="q4_12" value="C"> C. Check</label></li>
+                <li><label><input type="radio" name="q4_12" value="D"> D. Act</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>13. デミングサイクルを構成する4つのステップのうち、「実行」に該当するものは何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_13" value="A"> A. Do</label></li>
+                <li><label><input type="radio" name="q4_13" value="B"> B. Plan</label></li>
+                <li><label><input type="radio" name="q4_13" value="C"> C. Check</label></li>
+                <li><label><input type="radio" name="q4_13" value="D"> D. Act</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>14. デミングサイクルを構成する4つのステップのうち、「評価」に該当するものは何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_14" value="A"> A. Check</label></li>
+                <li><label><input type="radio" name="q4_14" value="B"> B. Plan</label></li>
+                <li><label><input type="radio" name="q4_14" value="C"> C. Do</label></li>
+                <li><label><input type="radio" name="q4_14" value="D"> D. Act</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>15. デミングサイクルを構成する4つのステップのうち、「改善」に該当するものは何ですか？ [12]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_15" value="A"> A. Act</label></li>
+                <li><label><input type="radio" name="q4_15" value="B"> B. Plan</label></li>
+                <li><label><input type="radio" name="q4_15" value="C"> C. Do</label></li>
+                <li><label><input type="radio" name="q4_15" value="D"> D. Check</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>16. 工程管理の目的として、QCD (品質、コスト、納期) の最適化を図ることが挙げられますが、この中の「品質」に該当する英語は何ですか？ [13, 14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_16" value="A"> A. Quality</label></li>
+                <li><label><input type="radio" name="q4_16" value="B"> B. Quantity</label></li>
+                <li><label><input type="radio" name="q4_16" value="C"> C. Quota</label></li>
+                <li><label><input type="radio" name="q4_16" value="D"> D. Quickness</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>17. 工程管理の目的として、QCD (品質、コスト、納期) の最適化を図ることが挙げられますが、この中の「コスト」に該当する英語は何ですか？ [13, 14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_17" value="A"> A. Cost</label></li>
+                <li><label><input type="radio" name="q4_17" value="B"> B. Control</label></li>
+                <li><label><input type="radio" name="q4_17" value="C"> C. Coordination</label></li>
+                <li><label><input type="radio" name="q4_17" value="D"> D. Capability</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>18. 工程管理の目的として、QCD (品質、コスト、納期) の最適化を図ることが挙げられますが、この中の「納期」に該当する英語は何ですか？ [13, 14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_18" value="A"> A. Delivery</label></li>
+                <li><label><input type="radio" name="q4_18" value="B"> B. Deadline</label></li>
+                <li><label><input type="radio" name="q4_18" value="C"> C. Design</label></li>
+                <li><label><input type="radio" name="q4_18" value="D"> D. Dimension</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>19. 工程管理の4つの手順のうち、工事計画を立て、工程表を作成する段階は何ですか？ [13]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_19" value="A"> A. 計画 (Plan)</label></li>
+                <li><label><input type="radio" name="q4_19" value="B"> B. 実施 (Do)</label></li>
+                <li><label><input type="radio" name="q4_19" value="C"> C. 検討 (Check)</label></li>
+                <li><label><input type="radio" name="q4_19" value="D"> D. 処理 (Action)</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>20. 工程管理の4つの手順のうち、作成した工程表に基づき工事が計画通りに進むよう指揮を執る段階は何ですか？ [13]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4_20" value="A"> A. 実施 (Do)</label></li>
+                <li><label><input type="radio" name="q4_20" value="B"> B. 計画 (Plan)</label></li>
+                <li><label><input type="radio" name="q4_20" value="C"> C. 検討 (Check)</label></li>
+                <li><label><input type="radio" name="q4_20" value="D"> D. 処理 (Action)</label></li>
+            </ul>
+        </div>
+        <button class="grade-button">回答完了</button>
+        <div class="result-display" style="display:none;"></div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 第4回の問題の正解を定義 (valueが'A'のものが正解)
+    const correctAnswers = {
+        'q4_1': 'A', 'q4_2': 'A', 'q4_3': 'A', 'q4_4': 'A', 'q4_5': 'A', 
+        'q4_6': 'A', 'q4_7': 'A', 'q4_8': 'A', 'q4_9': 'A', 'q4_10': 'A',
+        'q4_11': 'A', 'q4_12': 'A', 'q4_13': 'A', 'q4_14': 'A', 'q4_15': 'A', 
+        'q4_16': 'A', 'q4_17': 'A', 'q4_18': 'A', 'q4_19': 'A', 'q4_20': 'A'
+    };
+
+    // 選択肢をシャッフルする機能
+    document.querySelectorAll('.options').forEach(optionsList => {
+        const options = Array.from(optionsList.getElementsByTagName('li'));
+        
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        
+        options.forEach(option => optionsList.appendChild(option));
+    });
+
+    // 「回答完了」ボタンの機能
+    document.querySelector('.grade-button').addEventListener('click', (event) => {
+        const button = event.target;
+        const quizSection = button.closest('.quiz-section');
+        const questions = quizSection.querySelectorAll('.question');
+        const resultDisplay = quizSection.querySelector('.result-display');
+        
+        let score = 0;
+        const totalQuestions = questions.length;
+
+        questions.forEach(question => {
+            const radios = question.querySelectorAll('input[type="radio"]');
+            const questionName = radios[0].name;
+            const correctAnswerValue = correctAnswers[questionName];
+
+            const userAnswerInput = question.querySelector(`input[name="${questionName}"]:checked`);
+            
+            const correctAnswerLabel = question.querySelector(`input[value="${correctAnswerValue}"]`).closest('label');
+            correctAnswerLabel.classList.add('correct-answer');
+
+            if (userAnswerInput) {
+                const userAnswerValue = userAnswerInput.value;
+                const userLabel = userAnswerInput.closest('label');
+                
+                const feedbackSpan = document.createElement('span');
+                feedbackSpan.classList.add('result-feedback');
+
+                if (userAnswerValue === correctAnswerValue) {
+                    score++;
+                    feedbackSpan.textContent = '〇';
+                    feedbackSpan.classList.add('correct-symbol');
+                } else {
+                    feedbackSpan.textContent = '×';
+                    feedbackSpan.classList.add('incorrect-symbol');
+                    userLabel.classList.add('incorrect-choice');
+                }
+                userLabel.appendChild(feedbackSpan);
+            }
+
+            radios.forEach(radio => {
+                radio.disabled = true;
+                radio.closest('label').style.cursor = 'default';
+                radio.closest('label').style.pointerEvents = 'none';
+            });
+        });
+
+        // 結果を表示
+        resultDisplay.textContent = `結果: ${totalQuestions}問中 ${score}問正解`;
+        resultDisplay.style.display = 'block';
+
+        // ボタンを無効化
+        button.disabled = true;
+    });
+});
+</script>
+
+</body>
+</html>
