@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>第5回 4択テスト</title>
+<style>
+    /* 基本的なスタイル */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    /* 各テストセクションのスタイル */
+    .quiz-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        max-width: 800px; /* 見やすさのために最大幅を設定 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+    }
+    /* 各質問のスタイル */
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    /* 選択肢のスタイル */
+    .options {
+        list-style: none;
+        padding: 0;
+    }
+    .options li {
+        margin-bottom: 8px;
+    }
+    .options label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .options label:hover {
+        background-color: #e9ecef;
+    }
+    .options input[type="radio"] {
+        margin-right: 10px;
+    }
+    /* 正解・不正解表示用のスタイル */
+    .result-feedback {
+        margin-left: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .correct-symbol {
+        color: #28a745; /* 緑色 */
+    }
+    .incorrect-symbol {
+        color: #dc3545; /* 赤色 */
+    }
+    /* 正解の選択肢をハイライト */
+    .correct-answer {
+        background-color: #d4edda !important;
+        border-color: #c3e6cb;
+    }
+    /* ユーザーが選択した不正解の選択肢 */
+    .incorrect-choice {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    /* ボタンと結果表示のスタイル */
+    .grade-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+    .grade-button:hover {
+        background-color: #0056b3;
+    }
+    .grade-button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+    .result-display {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+
+    <div class="quiz-section">
+        <h2>第5回</h2>
+        <div class="question">
+            <p>1. 工程管理の4つの手順のうち、工事の進捗状況を確認し、計画とのずれを把握する段階は何ですか？ [13]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_1" value="A"> A. 検討 (Check)</label></li>
+                <li><label><input type="radio" name="q5_1" value="B"> B. 計画 (Plan)</label></li>
+                <li><label><input type="radio" name="q5_1" value="C"> C. 実施 (Do)</label></li>
+                <li><label><input type="radio" name="q5_1" value="D"> D. 処理 (Action)</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>2. 工程管理の4つの手順のうち、検討段階で明確化した課題の改善を行い、工程表や工事内容の見直しを行う段階は何ですか？ [13]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_2" value="A"> A. 処理 (Action)</label></li>
+                <li><label><input type="radio" name="q5_2" value="B"> B. 計画 (Plan)</label></li>
+                <li><label><input type="radio" name="q5_2" value="C"> C. 実施 (Do)</label></li>
+                <li><label><input type="radio" name="q5_2" value="D"> D. 検討 (Check)</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>3. 各作業の開始・終了日を視覚的に把握しやすい工程表の名称は何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_3" value="A"> A. バーチャート工程表</label></li>
+                <li><label><input type="radio" name="q5_3" value="B"> B. ネットワーク工程表</label></li>
+                <li><label><input type="radio" name="q5_3" value="C"> C. グラフ式工程表</label></li>
+                <li><label><input type="radio" name="q5_3" value="D"> D. 斜線式工程表</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>4. 作業間の関連性やクリティカルパスを把握できる工程表の名称は何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_4" value="A"> A. ネットワーク工程表</label></li>
+                <li><label><input type="radio" name="q5_4" value="B"> B. バーチャート工程表</label></li>
+                <li><label><input type="radio" name="q5_4" value="C"> C. グラフ式工程表</label></li>
+                <li><label><input type="radio" name="q5_4" value="D"> D. 曲線式工程表</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>5. バーチャートとガントチャートの特徴を併せ持ち、各作業の進捗状況を直感的に把握できる工程表の名称は何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_5" value="A"> A. グラフ式工程表</label></li>
+                <li><label><input type="radio" name="q5_5" value="B"> B. 斜線式工程表</label></li>
+                <li><label><input type="radio" name="q5_5" value="C"> C. 曲線式工程表</label></li>
+                <li><label><input type="radio" name="q5_5" value="D"> D. ネットワーク工程表</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>6. 距離が長いトンネル工事や、工区を分けて同時進行する地盤改良工事などに適した工程表の名称は何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_6" value="A"> A. 斜線式工程表</label></li>
+                <li><label><input type="radio" name="q5_6" value="B"> B. グラフ式工程表</label></li>
+                <li><label><input type="radio" name="q5_6" value="C"> C. 曲線式工程表</label></li>
+                <li><label><input type="radio" name="q5_6" value="D"> D. バーチャート工程表</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>7. 全体作業の進捗率を視覚的に把握しやすい工程表で、別名バナナ曲線、出来高累計曲線、Sカーブなどと呼ばれるものは何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_7" value="A"> A. 曲線式工程表</label></li>
+                <li><label><input type="radio" name="q5_7" value="B"> B. グラフ式工程表</label></li>
+                <li><label><input type="radio" name="q5_7" value="C"> C. 斜線式工程表</label></li>
+                <li><label><input type="radio" name="q5_7" value="D"> D. バーチャート工程表</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>8. バーチャート工程表のメリットとして正しいものは何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_8" value="A"> A. 作成が簡単で、各作業の開始日・終了日・所要日数が分かりやすい</label></li>
+                <li><label><input type="radio" name="q5_8" value="B"> B. 作業間の関連性を明確に把握しやすい</label></li>
+                <li><label><input type="radio" name="q5_8" value="C"> C. 工程に影響する作業を特定しやすい</label></li>
+                <li><label><input type="radio" name="q5_8" value="D"> D. 専門的な知識が不要で、進捗状況を把握しやすい</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>9. バーチャート工程表のデメリットとして正しいものは何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_9" value="A"> A. 作業間の関連性を明確に把握しにくく、工程に影響する作業を特定しにくい</label></li>
+                <li><label><input type="radio" name="q5_9" value="B"> B. 作成が複雑で専門的な知識が必要</label></li>
+                <li><label><input type="radio" name="q5_9" value="C"> C. 各作業の開始日・終了日・所要日数が分かりにくい</label></li>
+                <li><label><input type="radio" name="q5_9" value="D"> D. プロジェクト全体の進捗率を把握しにくい</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>10. ネットワーク工程表のメリットとして正しいものは何ですか？ [15]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_10" value="A"> A. 各作業の開始日・終了日・所要日数が分かりやすく、作業間の関連性や工程に影響する作業を把握できる</label></li>
+                <li><label><input type="radio" name="q5_10" value="B"> B. 作成が簡単で、特別な知識が不要</label></li>
+                <li><label><input type="radio" name="q5_10" value="C"> C. 作業の進捗状況を直感的に把握しやすい</label></li>
+                <li><label><input type="radio" name="q5_10" value="D"> D. コスト管理と品質管理を同時に行える</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>11. ネットワーク工程表のデメリットとして正しいものは何ですか？ [14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_11" value="A"> A. 作成が複雑で専門的な知識が必要</label></li>
+                <li><label><input type="radio" name="q5_11" value="B"> B. 各作業の所要日数が分かりにくい</label></li>
+                <li><label><input type="radio" name="q5_11" value="C"> C. 作業間の関連性を把握しにくい</label></li>
+                <li><label><input type="radio" name="q5_11" value="D"> D. クリティカルパスを明確化できない</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>12. プロジェクト全体の工期を決定する、最も時間のかかる作業経路のことを何と呼びますか？ [14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_12" value="A"> A. クリティカルパス</label></li>
+                <li><label><input type="radio" name="q5_12" value="B"> B. ショートパス</label></li>
+                <li><label><input type="radio" name="q5_12" value="C"> C. マイルストーン</label></li>
+                <li><label><input type="radio" name="q5_12" value="D"> D. タスクパス</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>13. ハインリッヒの法則とは、1つの重大な事故の裏には、29件の軽微な事故と、何件のヒヤリハットが存在するという法則ですか？ [14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_13" value="A"> A. 300件</label></li>
+                <li><label><input type="radio" name="q5_13" value="B"> B. 100件</label></li>
+                <li><label><input type="radio" name="q5_13" value="C"> C. 500件</label></li>
+                <li><label><input type="radio" name="q5_13" value="D"> D. 1000件</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>14. アローダイアグラムとネットワーク工程表は実務上同じものとして扱われることが多いですが、アローダイアグラムが主に焦点を当てているものは何ですか？ [14]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_14" value="A"> A. 作業順序と時間管理</label></li>
+                <li><label><input type="radio" name="q5_14" value="B"> B. コスト管理と資源配分</label></li>
+                <li><label><input type="radio" name="q5_14" value="C"> C. 品質保証とリスク管理</label></li>
+                <li><label><input type="radio" name="q5_14" value="D"> D. チーム編成とコミュニケーション</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>15. 架空電線を道路上に設置する場合、路面から何メートル以上の高さが必要ですか？ [16]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_15" value="A"> A. 5メートル以上</label></li>
+                <li><label><input type="radio" name="q5_15" value="B"> B. 4メートル以上</label></li>
+                <li><label><input type="radio" name="q5_15" value="C"> C. 6メートル以上</label></li>
+                <li><label><input type="radio" name="q5_15" value="D"> D. 3メートル以上</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>16. 架空電線を歩道と車道の区別がある道路の歩道上に設置する場合、例外的に路面から何メートル以上の高さで設置できますか？ [16]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_16" value="A"> A. 2.5メートル以上</label></li>
+                <li><label><input type="radio" name="q5_16" value="B"> B. 3メートル以上</label></li>
+                <li><label><input type="radio" name="q5_16" value="C"> C. 3.5メートル以上</label></li>
+                <li><label><input type="radio" name="q5_16" value="D"> D. 4メートル以上</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>17. 架空電線をその他の道路上に設置する場合、例外的に路面から何メートル以上の高さで設置できますか？ [16]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_17" value="A"> A. 4.5メートル以上</label></li>
+                <li><label><input type="radio" name="q5_17" value="B"> B. 4メートル以上</label></li>
+                <li><label><input type="radio" name="q5_17" value="C"> C. 5メートル以上</label></li>
+                <li><label><input type="radio" name="q5_17" value="D"> D. 3.5メートル以上</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>18. 架空電線を鉄道や軌道を横断して設置する場合、軌条面から何メートル以上の高さが必要ですか？ [16]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_18" value="A"> A. 6メートル以上</label></li>
+                <li><label><input type="radio" name="q5_18" value="B"> B. 5メートル以上</label></li>
+                <li><label><input type="radio" name="q5_18" value="C"> C. 7メートル以上</label></li>
+                <li><label><input type="radio" name="q5_18" value="D"> D. 4メートル以上</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>19. 河川を横断する架空電線は、「艀行」に支障を及ぼさない高さである必要がありますが、「艀行」とは何を意味しますか？ [17]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_19" value="A"> A. 船が川や海を航行すること</label></li>
+                <li><label><input type="radio" name="q5_19" value="B"> B. 魚が群れをなして移動すること</label></li>
+                <li><label><input type="radio" name="q5_19" value="C"> C. 河川の水位が変動すること</label></li>
+                <li><label><input type="radio" name="q5_19" value="D"> D. 河川で漁を行うこと</label></li>
+            </ul>
+        </div>
+        <div class="question">
+            <p>20. 架空電線と他人が設置した架空電線との離隔距離は、何センチメートル超と定められていますか？ [17]</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5_20" value="A"> A. 30センチメートル超</label></li>
+                <li><label><input type="radio" name="q5_20" value="B"> B. 20センチメートル超</label></li>
+                <li><label><input type="radio" name="q5_20" value="C"> C. 40センチメートル超</label></li>
+                <li><label><input type="radio" name="q5_20" value="D"> D. 50センチメートル超</label></li>
+            </ul>
+        </div>
+        <button class="grade-button">回答完了</button>
+        <div class="result-display" style="display:none;"></div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 第5回の問題の正解を定義 (valueが'A'のものが正解)
+    const correctAnswers = {
+        'q5_1': 'A', 'q5_2': 'A', 'q5_3': 'A', 'q5_4': 'A', 'q5_5': 'A', 
+        'q5_6': 'A', 'q5_7': 'A', 'q5_8': 'A', 'q5_9': 'A', 'q5_10': 'A',
+        'q5_11': 'A', 'q5_12': 'A', 'q5_13': 'A', 'q5_14': 'A', 'q5_15': 'A', 
+        'q5_16': 'A', 'q5_17': 'A', 'q5_18': 'A', 'q5_19': 'A', 'q5_20': 'A'
+    };
+
+    // 選択肢をシャッフルする機能
+    document.querySelectorAll('.options').forEach(optionsList => {
+        const options = Array.from(optionsList.getElementsByTagName('li'));
+        
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        
+        options.forEach(option => optionsList.appendChild(option));
+    });
+
+    // 「回答完了」ボタンの機能
+    document.querySelector('.grade-button').addEventListener('click', (event) => {
+        const button = event.target;
+        const quizSection = button.closest('.quiz-section');
+        const questions = quizSection.querySelectorAll('.question');
+        const resultDisplay = quizSection.querySelector('.result-display');
+        
+        let score = 0;
+        const totalQuestions = questions.length;
+
+        questions.forEach(question => {
+            const radios = question.querySelectorAll('input[type="radio"]');
+            const questionName = radios[0].name;
+            const correctAnswerValue = correctAnswers[questionName];
+
+            const userAnswerInput = question.querySelector(`input[name="${questionName}"]:checked`);
+            
+            const correctAnswerLabel = question.querySelector(`input[value="${correctAnswerValue}"]`).closest('label');
+            correctAnswerLabel.classList.add('correct-answer');
+
+            if (userAnswerInput) {
+                const userAnswerValue = userAnswerInput.value;
+                const userLabel = userAnswerInput.closest('label');
+                
+                const feedbackSpan = document.createElement('span');
+                feedbackSpan.classList.add('result-feedback');
+
+                if (userAnswerValue === correctAnswerValue) {
+                    score++;
+                    feedbackSpan.textContent = '〇';
+                    feedbackSpan.classList.add('correct-symbol');
+                } else {
+                    feedbackSpan.textContent = '×';
+                    feedbackSpan.classList.add('incorrect-symbol');
+                    userLabel.classList.add('incorrect-choice');
+                }
+                userLabel.appendChild(feedbackSpan);
+            }
+
+            radios.forEach(radio => {
+                radio.disabled = true;
+                radio.closest('label').style.cursor = 'default';
+                radio.closest('label').style.pointerEvents = 'none';
+            });
+        });
+
+        // 結果を表示
+        resultDisplay.textContent = `結果: ${totalQuestions}問中 ${score}問正解`;
+        resultDisplay.style.display = 'block';
+
+        // ボタンを無効化
+        button.disabled = true;
+    });
+});
+</script>
+
+</body>
+</html>
